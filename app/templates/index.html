@@ -1,0 +1,40 @@
+<html>
+    <head>
+		<title>POST Proxy</title>
+
+		<style type="text/css">
+			.window { width: 600px; margin: auto; font-family: serif; }
+			.title { font-family: serif; font-variant: small-caps; font-size: 150%; padding-top: 5px; padding-bottom: 10px; margin: auto; height: 30px; }
+
+			a:link { text-decoration: none; color: #888888; }
+			a:visited { text-decoration: none; color: #888888; }
+			a:hover { text-decoration: none; color: #ffffff; }
+			a:active { text-decoration: none; color: #888888; }
+
+			body { color: #ffffff; background-color: #222222; overflow-y:auto; text-align: center; }
+		</style>
+		<link rel="shortcut icon" href="/static/icon.png"/>
+
+		<script type="text/javascript" src="/static/jquery-2.1.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#form").submit();
+			});
+		</script>
+    </head>
+
+	<body>
+		<div class="title">POST Proxy</div>
+
+		<div class="window">
+			{% if not url %}
+				<p>Error: No URL supplied. Unable to issue POST request.</p>
+			{% else %}
+				<p>Issuing POST request to {{url}}...</p>
+				<form action="{{url}}" method="POST" id="form">
+					{{form.hidden_tag()}}
+				</form>
+			{% endif %}
+		</div>
+	</body>
+</html>
