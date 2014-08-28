@@ -3,7 +3,7 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-PORT = 9996
+PORT = 9995
 
 # Local Testing
 TEST_HOST = "127.0.0.1"     # Must be 0.0.0.0 for external availability.

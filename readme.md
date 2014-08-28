@@ -1,10 +1,15 @@
-POST Proxy
-==========
+GET to POST
+===========
 
 A web service that accpets GET requests and submits them to a specified URL as a POST.
 
 Installation
 ============
+
+Instructions
+------------
+
+Edit `config.py` and specify the desired hostname and port, then simply execute run.py. (By default, it will be externally accessible. For testing on localhost, use the `--test` flag.)
 
 Requirements
 ------------
@@ -35,7 +40,7 @@ Bugs and Feature Requests
 Feature Requests
 ----------------
 
-None
+* It might be nice to be able to submit in the form ```http://SERVICE/URL?NAME1=VALUE1&NAME2=VALUE2...```. (Cleaner, and allows posting to a service that itself requres a `url` parameter.)
 
 Known Bugs
 ----------
