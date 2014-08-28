@@ -50,7 +50,6 @@ None
 License Information
 ===================
 
-Written by Gem Newman, with contributions from Curtis Vogt.
-http://www.startleddisbelief.com
+Written by Gem Newman. [GitHub](https://github.com/spurll/) | [Blog](http://www.startleddisbelief.com) | [Twitter](https://twitter.com/spurll)
 
-This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+This work is licensed under Creative Commons [BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
