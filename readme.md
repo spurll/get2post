@@ -9,7 +9,7 @@ Installation
 Instructions
 ------------
 
-Edit `config.py` and specify the desired hostname and port, then simply execute run.py. (By default, it will be externally accessible. For testing on localhost, use the `--test` flag.)
+Edit `config.py` and specify the desired hostname and port, then simply execute `run.py`. (By default, it will be externally accessible. For testing on localhost, use the `--test` flag.)
 
 Requirements
 ------------
@@ -46,6 +46,11 @@ Known Bugs
 ----------
 
 None
+
+Special Thanks
+==============
+
+Some of the implementation details were suggested by [Curtis Vogt](https://github.com/omus). Thanks!
 
 License Information
 ===================
