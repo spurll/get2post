@@ -29,6 +29,8 @@
 		<div class="window">
 			{% if not url %}
 				<p>Error: No URL supplied. Unable to issue POST request.</p>
+			{% elif not fields %}
+				<p>Error: No GET parameters supplied. Unable to issue POST request.</p>
 			{% else %}
 				<p>Issuing POST request to {{url}}...</p>
 				<form action="{{url}}" method="POST" id="form">

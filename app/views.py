@@ -3,6 +3,7 @@
 
 
 # Syntax:
+#   http://SERVICE/URL?NAME1=VALUE1&NAME2=VALUE2...
 #   http://SERVICE?url=URL&NAME1=VALUE1&NAME2=VALUE2...
 
 
@@ -12,19 +13,26 @@ from wtforms import HiddenField
 from app import app
 
 
-@app.route('/', methods=['GET'])
-@app.route('/index', methods=['GET'])
-def index():
+@app.route('/', defaults={'url': ''}, methods=['GET'])
+@app.route('/<path:url>', methods=['GET'])
+def index(url):
     args = dict(request.args)
-    url = args.pop("url", [None])[0]
+
+    if not url:
+        url = args.pop("url", [None])[0]
 
     class POSTForm(Form):
         pass
 
-    if url:
+    if url and args:
+        if "://" not in url:
+            url = "http://{}".format(url)
+
         for f in args:
             field = HiddenField(f, default=args[f][0])
             setattr(POSTForm, f, field)
+
+        print "Posting to {}...".format(url)
 
     form = POSTForm()
 
