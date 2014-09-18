@@ -1,7 +1,6 @@
 # Written by Gem Newman. This work is licensed under a Creative Commons         
 # Attribution-NonCommercial-ShareAlike 3.0 Unported License.                    
 
-
 # Syntax:
 #   http://SERVICE/URL?NAME1=VALUE1&NAME2=VALUE2...
 #   http://SERVICE?url=URL&NAME1=VALUE1&NAME2=VALUE2...
@@ -10,7 +9,8 @@
 from flask import render_template, flash, redirect, session, url_for, request
 from flask.ext.wtf import Form
 from wtforms import HiddenField
-from app import app
+
+from post import app
 
 
 @app.route('/', defaults={'url': ''}, methods=['GET'])

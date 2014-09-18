@@ -4,10 +4,10 @@
 # Attribution-NonCommercial-ShareAlike 3.0 Unported License.                    
 
 
-from werkzeug.serving import run_simple
 from argparse import ArgumentParser
 
-from app import app
+from post import app
+import config_test
 
 
 if __name__ == '__main__':
@@ -25,8 +25,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.test:
-        app.config["SERVER_NAME"] = app.config["TEST_SERVER_NAME"]
-        app.config["HOST"] = app.config["TEST_HOST"]
+        app.config.from_object(config_test)
 
     app.run(app.config["HOST"], app.config["PORT"], use_debugger=args.debug,
             use_reloader=args.reload)
