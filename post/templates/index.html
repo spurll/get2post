@@ -13,9 +13,9 @@
 
 			body { color: #ffffff; background-color: #222222; overflow-y:auto; text-align: center; }
 		</style>
-		<link rel="shortcut icon" href="/static/icon.png"/>
 
-		<script type="text/javascript" src="/static/jquery-2.1.1.js"></script>
+		<link rel="shortcut icon" href="{{url_for('static', 'icon.png')}}"/>
+		<script type="text/javascript" src="{{url_for('static', 'jquery-2.1.1.js')}}"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#form").submit();
