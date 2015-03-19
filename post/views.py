@@ -25,16 +25,16 @@ def index(url):
         pass
 
     if url and args:
-        if "://" not in url:
-            url = "http://{}".format(url)
+        if '://' not in url:
+            url = 'http://{}'.format(url)
 
         for f in args:
             field = HiddenField(f, default=args[f][0])
             setattr(POSTForm, f, field)
 
-        print "Posting to {}...".format(url)
+        print('Posting to {}...'.format(url))
 
     form = POSTForm()
 
-    return render_template("index.html", url=url, form=form, fields=args)
+    return render_template('index.html', url=url, form=form, fields=args)
 
