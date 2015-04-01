@@ -1,39 +1,69 @@
 <html>
     <head>
-		<meta name="viewport" content="width=500px">
-		<meta name=“viewport” content="initial-scale=1.0"> 
+		<!-- Support for iOS device sizes. -->
+		<meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
 
 		<title>GET to POST</title>
 
 		<style type="text/css">
-			.window { width: 400px; margin: auto; font-family: serif; }
-			.title { font-family: serif; font-variant: small-caps; font-size: 150%; padding-top: 5px; padding-bottom: 10px; margin: auto; height: 30px; }
+			#content { width: 500px; margin: auto; padding-top: 10px; }
+
+			#title-bar {
+				width: 100%;
+				top: 0px;
+				background-color: #111111;
+				border-bottom: solid #444444;
+			}
+
+			#title {
+				width: 60%;
+				margin: auto;
+				font-variant: small-caps;
+				font-size: 200%;
+				text-align: center;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
 
 			a:link { text-decoration: none; color: #888888; }
 			a:visited { text-decoration: none; color: #888888; }
 			a:hover { text-decoration: none; color: #ffffff; }
 			a:active { text-decoration: none; color: #888888; }
 
-			body { color: #ffffff; background-color: #222222; overflow-y:auto; text-align: center; }
+			body { color: #ffffff; background-color: #222222; overflow-y:auto; text-align: center; margin: 0px; }
+			.error { font-style: italic; }
+			.code {font-family: monospace; }
+			.title { font-family: serif; font-variant: small-caps; font-size: 200%; }
 		</style>
 
 		<link rel="shortcut icon" href="{{url_for('static', filename='icon.png')}}"/>
 		<script type="text/javascript" src="{{url_for('static', filename='jquery-2.1.1.js')}}"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+				// http://stackoverflow.com/questions/1248081/get-the-browser-viewport-dimensions-with-javascript
+				var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+				if (width < document.getElementById('content').offsetWidth) {
+					// Resizes the content window to be smaller if viewed on a small screen.
+					document.getElementById('content').style.width = width;
+				}
+
 				$("#form").submit();
 			});
 		</script>
     </head>
 
 	<body>
-		<div class="title">GET to POST</div>
+		<div id="title-bar"><div id="title">GET to POST</div></div>
 
-		<div class="window">
-			{% if not url %}
-				<p>Error: No URL supplied. Unable to issue POST request.</p>
-			{% elif not fields %}
-				<p>Error: No GET parameters supplied. Unable to issue POST request.</p>
+		<div id="content">
+			{% if not url or not feeds %}
+				{% if not url %}
+					<p class="error">Error: No URL supplied. Unable to issue POST request.</p>
+				{% else %}
+					<p class="error">Error: No GET parameters supplied. Unable to issue POST request.</p>
+				{% endif %}
+				<p>Append the target URL to address bar and supply any data to be posted.</p>
+				<p class="code">http://THIS.SERVER.URL/TARGET.URL/?ARG1=VAL1&amp;ARG2=VAL2</p>
 			{% else %}
 				<p>Issuing POST request to {{url}}...</p>
 				<form action="{{url}}" method="POST" id="form">
