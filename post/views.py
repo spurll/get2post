@@ -28,11 +28,11 @@ def index(url):
         if '://' not in url:
             url = 'http://{}'.format(url)
 
+        print('Posting the following values to {}:'.format(url))
         for f in args:
             field = HiddenField(f, default=args[f][0])
             setattr(POSTForm, f, field)
-
-        print('Posting to {}...'.format(url))
+            print('{}: {}'.format(f, args[f][0]))
 
     form = POSTForm()
 
