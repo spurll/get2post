@@ -15,7 +15,12 @@ Requirements
 Starting the Server
 -------------------
 
-Start the server with `run.py`. By default it will be accessible at `localhost:9999`. To make the server world-accessible or for other options, see `run.py -h`.
+Start the server with `run.py`. By default it will be accessible at `localhost:9999`. To
+make the server world-accessible or for other options, see `run.py -h`.
+
+If you're having trouble configuring your sever, I wrote a
+[blog post](http://blog.spurll.com/2015/02/configuring-flask-uwsgi-and-nginx.html)
+explaining how you can get Flask, uWSGI, and Nginx working together.
 
 Basic Usage
 -----------
@@ -44,7 +49,9 @@ For example:
 http://your.server:9999?url=https://www.skipthedishes.ca/fox-and-fiddle&delivery_or_pickup=Delivery&postalcode=R3T6A8&op=Start%20Your%20Order&form_id=skipthedishes_start_your_order_form
 ```
 
-All GET parameters (except `url`, if the target URL isn't supplied in the path) are translated into hidden `<input>` tags in the form to be submitted, with the `name` attribute set to the parameter name and the `value` attribute set to the parameter value.
+All GET parameters (except `url`, if the target URL isn't supplied in the path) are
+translated into hidden `<input>` tags in the form to be submitted, with the `name`
+attribute set to the parameter name and the `value` attribute set to the parameter value.
 
 Bugs and Feature Requests
 =========================
