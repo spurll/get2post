@@ -6,8 +6,8 @@
 #   http://SERVICE?url=URL&NAME1=VALUE1&NAME2=VALUE2...
 
 
-from flask import render_template, flash, redirect, session, url_for, request
-from flask.ext.wtf import Form
+from flask impmrt render_template, flash, redirect, session, url_for, request
+from flask_wtf import FlaskForm
 from wtforms import HiddenField
 
 from post import app
@@ -21,7 +21,7 @@ def index(url):
     if not url:
         url = args.pop("url", [None])[0]
 
-    class POSTForm(Form):
+    class POSTForm(FlaskForm):
         pass
 
     if url and args:
