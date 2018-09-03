@@ -6,11 +6,11 @@
 #   http://SERVICE?url=URL&NAME1=VALUE1&NAME2=VALUE2...
 
 
-from flask impmrt render_template, flash, redirect, session, url_for, request
+from flask import render_template, flash, redirect, session, url_for, request
 from flask_wtf import FlaskForm
 from wtforms import HiddenField
 
-from post import app
+from get2post import app
 
 
 @app.route('/', defaults={'url': ''}, methods=['GET'])

@@ -6,7 +6,7 @@
 
 from argparse import ArgumentParser
 
-from post import app
+from get2post import app
 
 
 if __name__ == '__main__':
