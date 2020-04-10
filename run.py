@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-
-# Written by Gem Newman. This work is licensed under a Creative Commons         
-# Attribution-NonCommercial-ShareAlike 3.0 Unported License.                    
+#!/usr/bin/env python3
 
 
 from argparse import ArgumentParser
@@ -10,7 +7,7 @@ from get2post import app
 
 
 if __name__ == '__main__':
-    description = "Runs the Flask server for the GET to POST web service."
+    description = "Runs the Flask server."
     parser = ArgumentParser(description=description)
     parser.add_argument("-0", "--public", help="Makes the server world-"
                         "accessible by hosting at 0.0.0.0.",

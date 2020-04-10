@@ -1,43 +1,15 @@
 <html>
     <head>
 		<!-- Support for iOS device sizes. -->
-		<meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+		<meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no'>
 
 		<title>GET to POST</title>
 
-		<style type="text/css">
-			#content { width: 100%; max-width: 500px; margin: auto; padding-top: 10px; }
+		<link rel="stylesheet" type="text/css" href={{ url_for("static", filename="common.css") }} />
+		<link rel="stylesheet" type="text/css" href={{ url_for("static", filename="style.css") }} />
+		<link rel="shortcut icon" href={{ url_for("static", filename="icon.png") }} />
 
-			#title-bar {
-				width: 100%;
-				top: 0px;
-				background-color: #111111;
-				border-bottom: solid #444444;
-			}
-
-			#title {
-				width: 60%;
-				margin: auto;
-				font-variant: small-caps;
-				font-size: 200%;
-				text-align: center;
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
-
-			a:link { text-decoration: none; color: #888888; }
-			a:visited { text-decoration: none; color: #888888; }
-			a:hover { text-decoration: none; color: #ffffff; }
-			a:active { text-decoration: none; color: #888888; }
-
-			body { color: #ffffff; background-color: #222222; overflow-y:auto; text-align: center; margin: 0px; }
-			.error { font-style: italic; }
-			.code {font-family: monospace; }
-			.title { font-family: serif; font-variant: small-caps; font-size: 200%; }
-		</style>
-
-		<link rel="shortcut icon" href="{{url_for('static', filename='icon.png')}}"/>
-		<script type="text/javascript" src="{{url_for('static', filename='jquery-2.1.1.js')}}"></script>
+		<script type="text/javascript" src={{ url_for("static", filename="jquery-3.1.0.min.js") }}></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#form").submit();
@@ -50,18 +22,22 @@
 
 		<div id="content">
 			{% if not url or not fields %}
-				{% if not url %}
-					<p class="error">Error: No URL supplied. Unable to issue POST request.</p>
-				{% else %}
-					<p class="error">Error: No GET parameters supplied. Unable to issue POST request.</p>
-				{% endif %}
-				<p>Append the target URL to address bar and supply any data to be posted.</p>
-				<p class="code">http://THIS.SERVER.URL/TARGET.URL/?ARG1=VAL1&amp;ARG2=VAL2</p>
+            <div class="messages">
+                {% if not url %}
+                <p>Error: No URL supplied. Unable to issue POST request.</p>
+                {% else %}
+                <p>Error: No GET parameters supplied. Unable to issue POST request.</p>
+                {% endif %}
+            </div>
+
+            <p>Append the target URL to address bar and supply any data to be posted.</p>
+
+            <p class="code">http://THIS.SERVER.URL/TARGET.URL/?ARG1=VAL1&amp;ARG2=VAL2</p>
 			{% else %}
-				<p>Issuing POST request to {{url}}...</p>
-				<form action="{{url}}" method="POST" id="form">
-					{{form.hidden_tag()}}
-				</form>
+            <p>Issuing POST request to {{url}}...</p>
+            <form action={{ url }} method="POST" id="form">
+                {{ form.hidden_tag() }}
+            </form>
 			{% endif %}
 		</div>
 	</body>
