@@ -1,15 +1,15 @@
 <html>
     <head>
 		<!-- Support for iOS device sizes. -->
-		<meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no'>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 
 		<title>GET to POST</title>
 
-		<link rel="stylesheet" type="text/css" href={{ url_for("static", filename="common.css") }} />
-		<link rel="stylesheet" type="text/css" href={{ url_for("static", filename="style.css") }} />
-		<link rel="shortcut icon" href={{ url_for("static", filename="icon.png") }} />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='common.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" />
 
-		<script type="text/javascript" src={{ url_for("static", filename="jquery-3.1.0.min.js") }}></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='jquery-3.1.0.min.js') }}"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#form").submit();
@@ -34,7 +34,7 @@
 
             <p class="code">http://THIS.SERVER.URL/TARGET.URL/?ARG1=VAL1&amp;ARG2=VAL2</p>
 			{% else %}
-            <p>Issuing POST request to {{url}}...</p>
+            <p>Issuing POST request to {{ url }}...</p>
             <form action={{ url }} method="POST" id="form">
                 {{ form.hidden_tag() }}
             </form>
